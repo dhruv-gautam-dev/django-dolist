@@ -45,3 +45,11 @@ def edit(request, pk):
         # task.is_completed = False
         # task.save()
         return render(request, "editTask.html", context)
+
+
+def deleteTask(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    task.delete()
+    # print("task is " + task)
+    # Task.objects.update(is_completed=True)
+    return redirect("home")
