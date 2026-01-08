@@ -61,7 +61,17 @@
 
           {%for compTask in completed_tasks%}
           <div class="card m-1">
-            <div class="card-body">{{compTask.task}}</div>
+            <div class="card-body">
+              {{compTask.task}}
+
+              <span style="position: relative; float: right">
+                <a
+                  class="btn btn-success"
+                  href="{% url 'markUnComplete' compTask.id %}"
+                  ><i class="fa fa-check"></i> Mark as UnDone</a
+                >
+              </span>
+            </div>
           </div>
 
           {% endfor %}

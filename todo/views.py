@@ -19,3 +19,12 @@ def markComplete(request, pk):
     task.is_completed = True
     task.save()
     return redirect("home")
+
+
+def markUnComplete(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    # print("task is " + task)
+    # Task.objects.update(is_completed=True)
+    task.is_completed = False
+    task.save()
+    return redirect("home")
