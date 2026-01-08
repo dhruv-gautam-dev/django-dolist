@@ -28,3 +28,20 @@ def markUnComplete(request, pk):
     task.is_completed = False
     task.save()
     return redirect("home")
+
+
+def edit(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+
+    if request.method == "POST":
+        editedTask = request.POST["task"]
+        task.task = editedTask
+        task.save()
+        return redirect("home")
+    else:
+        context = {"task": task}
+        # print("task is " + task)
+        # Task.objects.update(is_completed=True)
+        # task.is_completed = False
+        # task.save()
+        return render(request, "editTask.html", context)

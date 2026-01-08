@@ -5,4 +5,5 @@ urlpatterns = [
     path("addTask/", views.addTask, name="addTask"),
     path("markComplete/<int:pk>", views.markComplete, name="markComplete"),
     path("markUnComplete/<int:pk>", views.markUnComplete, name="markUnComplete"),
+    path("edit/<int:pk>", views.edit, name="edit"),
 ]
