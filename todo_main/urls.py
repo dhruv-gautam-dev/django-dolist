@@ -25,4 +25,5 @@ urlpatterns = [
     path("", views.home, name="home"),
     # To-Do List backend URLs
     path("todo/", include("todo.urls")),
+    path("account/", include("users_app.urls")),
 ]
